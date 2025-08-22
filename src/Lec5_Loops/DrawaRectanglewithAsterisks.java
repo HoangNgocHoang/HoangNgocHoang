@@ -10,10 +10,11 @@ public class DrawaRectanglewithAsterisks {
         int h = scanner.nextInt();
         System.out.println("Enter r :");
         int r = scanner.nextInt();
-        for (int i = 1; i <= h; i++) {
-            for (int j = i; j <= r ; j++) {
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < r; j++) {
                 System.out.print("*");
             }
             System.out.println();
         }
-    }}
+    }
+}
