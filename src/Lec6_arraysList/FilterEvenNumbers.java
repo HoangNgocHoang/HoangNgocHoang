@@ -1,9 +1,10 @@
-
 package Lec6_arraysList;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FilterEvenNumbers {
+
     public static ArrayList<Integer> filterEven(int[] arr) {
         ArrayList<Integer> evenList = new ArrayList<>();
         for (int num : arr) {
