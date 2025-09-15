@@ -14,7 +14,6 @@ public class drawaRightAngledTriangle {
                 
             }
             System.out.println("");
-        }
-        scanner.close();
+        }       
     }
 }
