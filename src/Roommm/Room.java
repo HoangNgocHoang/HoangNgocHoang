@@ -1,8 +1,8 @@
-package RoomUpdate;
+package Roommm;
 
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.text.ParseException;
 
 public abstract class Room implements IRoom {
@@ -69,26 +69,22 @@ public abstract class Room implements IRoom {
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         try {
-            System.out.println("Enter Id :");
+            System.out.println("Enter id :");
             setId(sc.nextLine());
-
             System.out.println("Enter Name :");
             setName(sc.nextLine());
-
-            System.out.println("Enter BaseCost :");
+            System.out.println("Enter baseCost :");
             setBaseCost(sc.nextDouble());
-            sc.nextLine(); // clear buffer
-
-            System.out.println("Enter CheckIn (dd/MM/yyyy):");
+            sc.nextLine();
+            System.out.println("Enter check in :");
             this.checkin = sdf.parse(sc.nextLine());
-
-            System.out.println("Enter CheckOut (dd/MM/yyyy):");
+            System.out.println("Enter check out :");
             this.checkout = sdf.parse(sc.nextLine());
 
-            System.out.println("CheckIn: " + sdf.format(this.checkin));
-            System.out.println("CheckOut: " + sdf.format(this.checkout));
+            System.out.println("Check in :" + sdf.format(checkin));
+            System.out.println("checkout :" + sdf.format(checkout));
         } catch (ParseException e) {
-            System.out.println("Invalid date format!");
+            System.out.println("Invalid date format ");
         }
     }
 
@@ -97,18 +93,20 @@ public abstract class Room implements IRoom {
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         try {
-            System.out.println("Update Name:" + getName());
+            System.out.println("Update Name :" + getName());
             setName(sc.nextLine());
+
             System.out.println("Update BaseCost :" + getBaseCost());
             setBaseCost(sc.nextDouble());
             sc.nextLine();
-            System.out.println("update Checkin : " + (checkin != null ? sdf.format(checkin) : "N/A"));
+
+            System.out.println("Update Check In :" + (checkin != null ? sdf.format(checkin) : "N/A"));
             this.checkin = sdf.parse(sc.nextLine());
-            System.out.println("Update checkout : " + (checkout != null ? sdf.format(checkout) : "N/A"));
+            System.out.println("Update Check out :" + (checkout != null ? sdf.format(checkout) : "N/A"));
             this.checkout = sdf.parse(sc.nextLine());
             return true;
         } catch (ParseException e) {
-            System.out.println("invalid date format");
+            System.out.println("Invalid Date Format ");
             return false;
         }
     }
@@ -116,11 +114,11 @@ public abstract class Room implements IRoom {
     @Override
     public void displayDetails() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        System.out.println("Id: " + getId());
-        System.out.println("Name: " + getName());
-        System.out.println("Base Cost: " + getBaseCost());
-        System.out.println("Check In Date: " + (getCheckin() != null ? sdf.format(getCheckin()) : "N/A"));
-        System.out.println("Check Out Date: " + (getCheckout() != null ? sdf.format(getCheckout()) : "N/A"));
+        System.out.println("id : " + getId());
+        System.out.println("Name :" + getName());
+        System.out.println("BaseCost : " + getBaseCost());
+        System.out.println("CheckIn :" + (getCheckin() != null ? sdf.format(getCheckin()) : "N/A"));
+        System.out.println("checkout :" + (getCheckout() != null ? sdf.format(getCheckout()) : "N/A"));
     }
 
     @Override
@@ -130,7 +128,7 @@ public abstract class Room implements IRoom {
         if (checkin == null || checkout == null) {
             return 0;
         }
-        long diff = checkout.getTime() - checkin.getTime();
+        long diff = checkin.getTime() - checkout.getTime();
         return (int) (diff / (1000 * 60 * 60 * 24));
     }
 }

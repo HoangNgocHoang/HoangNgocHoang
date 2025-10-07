@@ -1,4 +1,4 @@
-package RoomUpdate;
+package Roommm;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -31,7 +31,7 @@ public class MeetingRoom extends Room {
     public void addRoom() {
         super.addRoom();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Capacity :");
+        System.out.println("Enter capacity :");
         setCapacity(sc.nextInt());
         sc.nextLine();
     }
@@ -40,8 +40,9 @@ public class MeetingRoom extends Room {
     public boolean updateRoom() {
         super.updateRoom();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Update Capacity :" + getCapacity());
+        System.out.println("update Capacity : " + getCapacity());
         setCapacity(sc.nextInt());
+        sc.nextLine();
         return true;
     }
 
@@ -49,9 +50,10 @@ public class MeetingRoom extends Room {
     public void displayDetails() {
         super.displayDetails();
         System.out.println("Capacity :" + getCapacity());
-        System.out.println("Total Cost: " +String.format("%.2f", calculateCost()));
+        System.out.println("cost :" + String.format("%.2f", calculateCost()));
 
     }
+
     @Override
     public double calculateCost() {
         double cost = getBaseCost();
